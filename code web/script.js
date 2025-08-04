@@ -2358,13 +2358,13 @@ const testData = {
                       {
                         question: "Какая команда включает автозагрузку сервиса при старте системы?",
                         options: [
-                          "А: systemctl autostart <имя_сервиса>",
-                          "Б: systemctl enable <имя_сервиса>",
-                          "В: systemctl boot <имя_сервиса>",
-                          "Г: systemctl startup <имя_сервиса>"
+                          "systemctl autostart <имя_сервиса>",
+                          "systemctl enable <имя_сервиса>",
+                          "systemctl boot <имя_сервиса>",
+                          "systemctl startup <имя_сервиса>"
                         ],
                         correct: 1,
-                        topic: "systemctl",
+                        topic: "systemctl enable <имя_сервиса>",
                         explanation: {
                           correct: "Вариант Б — systemctl enable <имя_сервиса> создает символические ссылки, которые обеспечивают автоматический запуск сервиса при загрузке системы.",
                           incorrect: [
@@ -2377,13 +2377,13 @@ const testData = {
                       {
                         question: "Как включить автозагрузку и сразу запустить сервис SSH?",
                         options: [
-                          "А: systemctl enable ssh && systemctl start ssh",
-                          "Б: systemctl enable --now ssh",
-                          "В: systemctl start --enable ssh",
-                          "Г: systemctl auto ssh"
+                          "systemctl enable ssh && systemctl start ssh",
+                          "systemctl enable --now ssh",
+                          "systemctl start --enable ssh",
+                          "systemctl auto ssh"
                         ],
                         correct: 1,
-                        topic: "systemctl",
+                        topic: "systemctl enable --now ssh",
                         explanation: {
                           correct: "Вариант Б — флаг --now в команде systemctl enable одновременно включает автозагрузку и запускает сервис.",
                           incorrect: [
@@ -2396,13 +2396,13 @@ const testData = {
                       {
                         question: "Какая из команд НЕ относится к дополнительным командам systemctl?",
                         options: [
-                          "А: systemctl reload",
-                          "Б: systemctl is-active",
-                          "В: systemctl daemon-reload",
-                          "Г: systemctl configure"
+                          "systemctl reload",
+                          "systemctl is-active",
+                          "systemctl daemon-reload",
+                          "systemctl configure"
                         ],
                         correct: 3,
-                        topic: "systemctl",
+                        topic: "systemctl daemon-reload",
                         explanation: {
                           correct: "Вариант Г — команды systemctl configure не существует в systemctl.",
                           incorrect: [
@@ -2415,13 +2415,13 @@ const testData = {
                       {
                         question: "Что происходит при маскировке сервиса командой systemctl mask?",
                         options: [
-                          "А: Сервис временно отключается до перезагрузки",
-                          "Б: Unit-файл создает символическую ссылку на /dev/null",
-                          "В: Сервис скрывается из списка доступных сервисов",
-                          "Г: Создается резервная копия конфигурации сервиса"
+                          "Сервис временно отключается до перезагруки",
+                          "Unit-файл создает символическую ссылку на /dev/null",
+                          "Сервис скрывается из списка доступных сервисов",
+                          "Создается резервная копия конфигурации сервиса"
                         ],
                         correct: 1,
-                        topic: "systemctl",
+                        topic: "systemctl mask",
                         explanation: {
                           correct: "Вариант Б — маскировка создает символическую ссылку unit-файла на /dev/null, что полностью блокирует возможность запуска сервиса любыми способами.",
                           incorrect: [
@@ -2434,13 +2434,13 @@ const testData = {
                       {
                         question: "Какая команда позволяет управлять сервисами в режиме экстренных случаев?",
                         options: [
-                          "А: systemctl emergency <имя_сервиса>",
-                          "Б: systemctl --force stop <имя_сервиса>",
-                          "В: systemctl panic <имя_сервиса>",
-                          "Г: systemctl kill <имя_сервиса>"
+                          "systemctl emergency <имя_сервиса>",
+                          "systemctl --force stop <имя_сервиса>",
+                          "systemctl panic <имя_сервиса>",
+                          "systemctl kill <имя_сервиса>"
                         ],
                         correct: 0,
-                        topic: "systemctl",
+                        topic: "systemctl emergency <имя_сервиса>",
                         explanation: {
                           correct: "Вариант А — команды systemctl emergency для сервисов не существует.",
                           incorrect: [
@@ -2453,13 +2453,13 @@ const testData = {
                       {
                         question: "Что описывают юниты сервисов в systemd?",
                         options: [
-                          "А: Только исполняемые файлы приложений",
-                          "Б: Конфигурацию, зависимости и поведение системных ресурсов и сервисов",
-                          "В: Только сетевые настройки системы",
-                          "Г: Исключительно файловые системы и точки монтирования"
+                          "Только исполняемые файлы приложений",
+                          "Конфигурацию, зависимости и поведение системных ресурсов и сервисов",
+                          "Только сетевые настройки системы",
+                          "Исключительно файловые системы и точки монтирования"
                         ],
                         correct: 1,
-                        topic: "systemd юниты",
+                        topic: "systemd юниты ",
                         explanation: {
                           correct: "Вариант Б — unit-файлы содержат полное описание сервиса: как его запускать, какие зависимости имеет, как себя ведет при различных условиях.",
                           incorrect: [
@@ -2472,13 +2472,13 @@ const testData = {
                       {
                         question: "Где обычно располагаются системные unit-файлы?",
                         options: [
-                          "А: /home/user/.config/systemd/",
-                          "Б: /etc/systemd/system/",
-                          "В: /usr/lib/systemd/system/",
-                          "Г: /var/lib/systemd/"
+                          "/home/user/.config/systemd/",
+                          "/etc/systemd/system/",
+                          "/usr/lib/systemd/system/",
+                          "/var/lib/systemd/"
                         ],
                         correct: 2,
-                        topic: "systemd юниты",
+                        topic: "systemd юниты /usr/lib/systemd/system/",
                         explanation: {
                           correct: "Вариант В — /usr/lib/systemd/system/ содержит системные unit-файлы, поставляемые пакетами дистрибутива.",
                           incorrect: [
@@ -2491,13 +2491,13 @@ const testData = {
                       {
                         question: "Какие основные секции содержит структура unit-файла?",
                         options: [
-                          "А: [Header], [Body], [Footer]",
-                          "Б: [Config], [Runtime], [Cleanup]",
-                          "В: [Unit], [Service], [Install]",
-                          "Г: [Main], [Dependencies], [Options]"
+                          "[Header], [Body], [Footer]",
+                          "[Config], [Runtime], [Cleanup]",
+                          "[Unit], [Service], [Install]",
+                          "[Main], [Dependencies], [Options]"
                         ],
                         correct: 2,
-                        topic: "systemd юниты",
+                        topic: "systemd юниты [Unit], [Service], [Install]",
                         explanation: {
                           correct: "Вариант В — основные секции unit-файла: [Unit] для общих метаданных, [Service] для специфичных настроек типа юнита, [Install] для параметров установки.",
                           incorrect: [
@@ -2510,13 +2510,13 @@ const testData = {
                       {
                         question: "За что отвечает секция [Unit] в unit-файле?",
                         options: [
-                          "А: Только за имя сервиса",
-                          "Б: За общие метаданные: описание, зависимости и условия запуска",
-                          "В: Исключительно за команды запуска",
-                          "Г: Только за автозагрузку при старте системы"
+                          "Только за имя сервиса",
+                          "За общие метаданные: описание, зависимости и условия запуска",
+                          "Исключительно за команды запуска",
+                          "Только за автозагрузку при старте системы"
                         ],
                         correct: 1,
-                        topic: "systemd юниты",
+                        topic: "systemd юниты [Unit]",
                         explanation: {
                           correct: "Вариант Б — секция [Unit] содержит общую информацию: Description, After, Before, Requires, Wants и другие директивы управления зависимостями.",
                           incorrect: [
@@ -2529,13 +2529,13 @@ const testData = {
                       {
                         question: "Какая директива в секции [Service] определяет команду запуска сервиса?",
                         options: [
-                          "А: StartCommand=",
-                          "Б: ExecStart=",
-                          "В: RunCommand=",
-                          "Г: LaunchCmd="
+                          "StartCommand=",
+                          "ExecStart=",
+                          "RunCommand=",
+                          "LaunchCmd="
                         ],
                         correct: 1,
-                        topic: "systemd юниты",
+                        topic: "systemd юниты ExecStart=",
                         explanation: {
                           correct: "Вариант Б — ExecStart= определяет команду или скрипт, который будет выполнен для запуска сервиса.",
                           incorrect: [
@@ -2548,13 +2548,13 @@ const testData = {
                       {
                         question: "За что отвечает директива WantedBy= в секции [Install]?",
                         options: [
-                          "А: Определяет пользователя, от имени которого запускается сервис",
-                          "Б: Указывает целевой уровень выполнения (target)",
-                          "В: Задает приоритет запуска сервиса",
-                          "Г: Определяет время задержки перед запуском"
+                          "Определяет пользователя, от имени которого запускается сервис",
+                          "Указывает целевой уровень выполнения (target)",
+                          "Задает приоритет запуска сервиса",
+                          "Определяет время задержки перед запуском"
                         ],
                         correct: 1,
-                        topic: "systemd юниты",
+                        topic: "systemd юниты WantedBy=",
                         explanation: {
                           correct: "Вариант Б — WantedBy= указывает, к какому target (например, multi-user.target) будет привязан сервис при выполнении systemctl enable.",
                           incorrect: [
@@ -2567,13 +2567,13 @@ const testData = {
                       {
                         question: "Как создать простой unit-файл для запуска скрипта /opt/myapp/start.sh?",
                         options: [
-                          "А: Только указать ExecStart=/opt/myapp/start.sh",
-                          "Б: Создать unit-файл, указав ExecStart=",
-                          "В: Скопировать существующий unit-файл и изменить имя",
-                          "Г: Использовать команду systemctl create"
+                          "Только указать ExecStart=/opt/myapp/start.sh",
+                          "Создать unit-файл, указав ExecStart=",
+                          "Скопировать существующий unit-файл и изменить имя",
+                          "Использовать команду systemctl create"
                         ],
                         correct: 1,
-                        topic: "systemd юниты",
+                        topic: "systemd юниты Создать unit-файл, указав ExecStart=",
                         explanation: {
                           correct: "Вариант Б — полный unit-файл должен содержать секцию [Unit] с описанием, [Service] с ExecStart= и [Install] с WantedBy= для корректной работы.",
                           incorrect: [
@@ -2586,13 +2586,13 @@ const testData = {
                       {
                         question: "Какой тип unit-файла используется для описания долгосрочных сервисов?",
                         options: [
-                          "А: .timer",
-                          "Б: .socket",
-                          "В: .service",
-                          "Г: .target"
+                          ".timer",
+                          ".socket",
+                          ".service",
+                          ".target"
                         ],
                         correct: 2,
-                        topic: "systemd юниты",
+                        topic: "systemd юниты .service",
                         explanation: {
                           correct: "Вариант В — .service файлы предназначены для описания долгосрочных фоновых процессов и служб.",
                           incorrect: [
@@ -2605,13 +2605,13 @@ const testData = {
                       {
                         question: "Что обеспечивают socket-юниты (.socket) в systemd?",
                         options: [
-                          "А: Только мониторинг сетевых соединений",
-                          "Б: Сокет-активацию сервисов - запуск соединений",
-                          "В: Создание файлов сокетов в файловой системе",
-                          "Г: Шифрование сетевого трафика"
+                          "Только мониторинг сетевых соединений",
+                          "Сокет-активацию сервисов - запуск соединений",
+                          "Создание файлов сокетов в файловой системе",
+                          "Шифрование сетевого трафика"
                         ],
                         correct: 1,
-                        topic: "systemd юниты",
+                        topic: "systemd юниты socket-юниты",
                         explanation: {
                           correct: "Вариант Б — socket-юниты обеспечивают сокет-активацию: systemd слушает сокет и запускает соответствующий сервис только при поступлении соединения.",
                           incorrect: [
@@ -2624,13 +2624,13 @@ const testData = {
                       {
                         question: "Для чего используются path-юниты (.path) в systemd?",
                         options: [
-                          "А: Для создания новых каталогов в системе",
-                          "Б: Для мониторинга изменений в файлах или каталогах",
-                          "В: Для управления правами доступа к файлам",
-                          "Г: Для архивации данных в указанных путях"
+                          "Для создания новых каталогов в системе",
+                          "Для мониторинга изменений в файлах или каталогах",
+                          "Для управления правами доступа к файлам",
+                          "Для архивации данных в указанных путях"
                         ],
                         correct: 1,
-                        topic: "systemd юниты",
+                        topic: "systemd юниты path-юниты",
                         explanation: {
                           correct: "Вариант Б — path-юниты отслеживают изменения в файловой системе (создание, изменение файлов) и автоматически активируют связанные сервисы при обнаружении изменений.",
                           incorrect: [
@@ -2645,32 +2645,1123 @@ const testData = {
         }
     },
     "3": { // Модуль 3
-        title: "Модуль 3. Сетевые службы", // Название модуля
+        title: "Модуль 3. Сетевое управление и управление безопасностью", // Название модуля
         modules: {
             "3-1": { // Модуль 3.1
-                title: "Сетевые службы", // Назва ние модуля
+                title: "Настройка сетевых интерфейсов и Диагностика сетевых проблем", // Назва ние модуля
                 questions: [
-                    {
-                        question: "Какая команда используется для просмотра содержимого директории?",
-                        options: [
-                            "cat",
-                            "ls",
-                            "cd",
-                            "pwd"
-                        ],
-                        correct: 1,
-                        topic: "Базовые команды Linux",
-                        explanation: {
-                            correct: "Команда ls используется для просмотра содержимого директории.",
-                            incorrect: [
-                                "cat — команда для просмотра содержимого файлов.",
-                                "cd — команда для смены директории.",
-                                "pwd — команда для показа текущего пути."
-                            ]
-                        }
+                  {
+                    question: "Какая служба отвечает за управление сетевыми подключениями через NetworkManager?",
+                    options: [
+                        "network.service",
+                        "NetworkManager.service",
+                        "networkd.service",
+                        "networking.service"
+                    ],
+                    correct: 1,
+                    topic: "Настройка сети через NetworkManager",
+                    explanation: {
+                        correct: "NetworkManager.service — это системная служба, которая управляет сетевыми подключениями в современных дистрибутивах Linux.",
+                        incorrect: [
+                            "network.service — устаревшая служба для управления сетью в старых системах.",
+                            "networkd.service — служба systemd-networkd, альтернатива NetworkManager.",
+                            "networking.service — служба управления сетью в системах на базе Debian."
+                        ]
                     }
+                },
+                {
+                    question: "Какая команда nmcli используется для просмотра всех доступных Wi-Fi сетей?",
+                    options: [
+                        "nmcli device wifi list",
+                        "nmcli connection show",
+                        "nmcli radio wifi",
+                        "nmcli general status"
+                    ],
+                    correct: 0,
+                    topic: "Управление через nmcli device wifi list",
+                    explanation: {
+                        correct: "nmcli device wifi list отображает список всех доступных Wi-Fi сетей с информацией о силе сигнала и безопасности.",
+                        incorrect: [
+                            "nmcli connection show — показывает активные и сохраненные подключения.",
+                            "nmcli radio wifi — управляет состоянием Wi-Fi адаптера (включен/выключен).",
+                            "nmcli general status — показывает общий статус NetworkManager."
+                        ]
+                    }
+                },
+                {
+                    question: "В каком файле обычно находится конфигурация сетевого интерфейса enp0s3 в системах на базе Red Hat?",
+                    options: [
+                        "/etc/network/interfaces",
+                        "/etc/sysconfig/network-scripts/ifcfg-enp0s3",
+                        "/etc/netplan/01-network-manager-all.yaml",
+                        "/etc/systemd/network/enp0s3.network"
+                    ],
+                    correct: 1,
+                    topic: "Ручное редактирование файлов enp0s3",
+                    explanation: {
+                        correct: "/etc/sysconfig/network-scripts/ifcfg-enp0s3 — стандартное расположение файлов конфигурации сетевых интерфейсов в Red Hat/CentOS/Fedora.",
+                        incorrect: [
+                            "/etc/network/interfaces — файл конфигурации сети в Debian/Ubuntu.",
+                            "/etc/netplan/01-network-manager-all.yaml — файл конфигурации Netplan в Ubuntu 18.04+.",
+                            "/etc/systemd/network/enp0s3.network — файл конфигурации systemd-networkd."
+                        ]
+                    }
+                },
+                {
+                    question: "Какой файл содержит настройки DNS-серверов в Linux?",
+                    options: [
+                        "/etc/hosts",
+                        "/etc/hostname",
+                        "/etc/resolv.conf",
+                        "/etc/nsswitch.conf"
+                    ],
+                    correct: 2,
+                    topic: "Настройка DNS вручную /etc/resolv.conf",
+                    explanation: {
+                        correct: "/etc/resolv.conf содержит настройки DNS-серверов и параметры разрешения имен.",
+                        incorrect: [
+                            "/etc/hosts — файл для статического сопоставления имен хостов и IP-адресов.",
+                            "/etc/hostname — файл, содержащий имя хоста системы.",
+                            "/etc/nsswitch.conf — файл конфигурации служб имен и переключения служб."
+                        ]
+                    }
+                },
+                {
+                    question: "Какая команда позволяет временно изменить DNS-сервер без редактирования файлов?",
+                    options: [
+                        "echo 'nameserver 8.8.8.8' > /etc/resolv.conf",
+                        "resolvectl dns enp0s3 8.8.8.8",
+                        "systemctl restart systemd-resolved",
+                        "nmcli connection modify"
+                    ],
+                    correct: 1,
+                    topic: "Временное изменение DNS resolvectl dns enp0s3 8.8.8.8",
+                    explanation: {
+                        correct: "resolvectl dns enp0s3 8.8.8.8 устанавливает DNS-сервер для конкретного интерфейса временно через systemd-resolved.",
+                        incorrect: [
+                            "echo 'nameserver 8.8.8.8' > /etc/resolv.conf — перезапишет файл, но может быть перезаписан NetworkManager.",
+                            "systemctl restart systemd-resolved — перезапускает службу, но не изменяет настройки DNS.",
+                            "nmcli connection modify — команда для постоянного изменения настроек подключения."
+                        ]
+                    }
+                },
+                {
+                    question: "Какой параметр в файле конфигурации NetworkManager отвечает за постоянную настройку DNS?",
+                    options: [
+                        "DNS1=8.8.8.8",
+                        "NAMESERVER=8.8.8.8",
+                        "RESOLVER=8.8.8.8",
+                        "DNSSERVER=8.8.8.8"
+                    ],
+                    correct: 0,
+                    topic: "Постоянная настройка DNS DNS1=8.8.8.8",
+                    explanation: {
+                        correct: "DNS1=8.8.8.8 — правильный параметр для указания первого DNS-сервера в файлах конфигурации NetworkManager.",
+                        incorrect: [
+                            "NAMESERVER=8.8.8.8 — используется в /etc/resolv.conf, но не в файлах конфигурации NetworkManager.",
+                            "RESOLVER=8.8.8.8 — неправильный параметр.",
+                            "DNSSERVER=8.8.8.8 — неправильный параметр."
+                        ]
+                    }
+                },
+                {
+                    question: "Какая команда проверяет текущие настройки DNS через systemd-resolved?",
+                    options: [
+                        "systemctl status systemd-resolved",
+                        "resolvectl status",
+                        "cat /etc/resolv.conf",
+                        "nslookup"
+                    ],
+                    correct: 1,
+                    topic: "Проверка настроек resolvectl status",
+                    explanation: {
+                        correct: "resolvectl status показывает подробную информацию о настройках DNS для всех интерфейсов через systemd-resolved.",
+                        incorrect: [
+                            "systemctl status systemd-resolved — показывает статус службы, но не настройки DNS.",
+                            "cat /etc/resolv.conf — показывает содержимое файла, но не всегда отражает реальные настройки.",
+                            "nslookup — утилита для проверки разрешения имен, но не для просмотра настроек."
+                        ]
+                    }
+                },
+                {
+                    question: "Какая команда показывает IP-адрес всех сетевых интерфейсов?",
+                    options: [
+                        "ifconfig",
+                        "ip addr show",
+                        "hostname -I",
+                        "route -n"
+                    ],
+                    correct: 1,
+                    topic: "IP-адрес ip addr show",
+                    explanation: {
+                        correct: "ip addr show отображает IP-адреса всех сетевых интерфейсов с подробной информацией.",
+                        incorrect: [
+                            "ifconfig — устаревшая команда, может быть недоступна в современных дистрибутивах.",
+                            "hostname -I — показывает только IP-адреса, связанные с именем хоста.",
+                            "route -n — показывает таблицу маршрутизации, а не IP-адреса интерфейсов."
+                        ]
+                    }
+                },
+                {
+                    question: "Какая команда добавляет статический маршрут в Linux?",
+                    options: [
+                        "route add -net 192.168.1.0/24 gw 10.0.0.1",
+                        "ip route add 192.168.1.0/24 via 10.0.0.1",
+                        "netstat -rn",
+                        "tracert 192.168.1.1"
+                    ],
+                    correct: 1,
+                    topic: "Маршрутизацию ip route add 192.168.1.0/24 via 10.0.0.1",
+                    explanation: {
+                        correct: "ip route add 192.168.1.0/24 via 10.0.0.1 — современный способ добавления статического маршрута через команду ip.",
+                        incorrect: [
+                            "route add -net 192.168.1.0/24 gw 10.0.0.1 — устаревший синтаксис команды route.",
+                            "netstat -rn — команда для просмотра таблицы маршрутизации, а не для добавления маршрутов.",
+                            "tracert 192.168.1.1 — команда Windows для трассировки маршрута."
+                        ]
+                    }
+                },
+                {
+                    question: "Какая команда проверяет работу DNS разрешения имен?",
+                    options: [
+                        "ping google.com",
+                        "nslookup google.com",
+                        "wget google.com",
+                        "curl google.com"
+                    ],
+                    correct: 1,
+                    topic: "Работу DNS nslookup ",
+                    explanation: {
+                        correct: "nslookup google.com специально предназначена для проверки DNS разрешения имен и показывает подробную информацию о запросе.",
+                        incorrect: [
+                            "ping google.com — проверяет доступность хоста, но не специализируется на DNS.",
+                            "wget google.com — загружает контент с сайта, но не тестирует DNS напрямую.",
+                            "curl google.com — выполняет HTTP-запрос, но не тестирует DNS напрямую."
+                        ]
+                    }
+                },
+                {
+                    question: "Какая команда позволяет диагностировать сетевые проблемы путем трассировки маршрута?",
+                    options: [
+                        "ping -c 10",
+                        "traceroute",
+                        "netstat -i",
+                        "ss -tuln"
+                    ],
+                    correct: 1,
+                    topic: "Диагностика сетевых проблем в Linux traceroute",
+                    explanation: {
+                        correct: "traceroute отслеживает путь пакетов до целевого хоста и показывает каждый промежуточный узел.",
+                        incorrect: [
+                            "ping -c 10 — отправляет 10 пакетов для проверки доступности, но не показывает маршрут.",
+                            "netstat -i — показывает статистику сетевых интерфейсов.",
+                            "ss -tuln — показывает активные сокеты и порты."
+                        ]
+                    }
+                },
+                {
+                    question: "Какая команда показывает шлюз по умолчанию в Linux?",
+                    options: [
+                        "ip route show default",
+                        "ifconfig",
+                        "hostname",
+                        "arp -a"
+                    ],
+                    correct: 0,
+                    topic: "Шлюз ip route show default",
+                    explanation: {
+                        correct: "ip route show default отображает маршрут по умолчанию, включая шлюз по умолчанию.",
+                        incorrect: [
+                            "ifconfig — показывает конфигурацию сетевых интерфейсов, но не шлюз.",
+                            "hostname — показывает имя хоста системы.",
+                            "arp -a — показывает ARP-таблицу с MAC-адресами."
+                        ]
+                    }
+                },
+                {
+                    question: "Какая команда показывает процессы, слушающие на определенном порту?",
+                    options: [
+                        "lsof -i :80",
+                        "ps aux | grep 80",
+                        "netstat -p 80",
+                        "top | grep 80"
+                    ],
+                    correct: 0,
+                    topic: "Порт lsof -i :80",
+                    explanation: {
+                        correct: "lsof -i :80 показывает все процессы, которые используют порт 80.",
+                        incorrect: [
+                            "ps aux | grep 80 — ищет процессы с '80' в имени, но не связанные с портом.",
+                            "netstat -p 80 — неправильный синтаксис для netstat.",
+                            "top | grep 80 — ищет процессы с '80' в выводе top, но не по портам."
+                        ]
+                    }
+                },
+                {
+                    question: "Какой инструмент позволяет анализировать сетевой трафик в реальном времени?",
+                    options: [
+                        "ping",
+                        "tcpdump",
+                        "wget",
+                        "curl"
+                    ],
+                    correct: 1,
+                    topic: "Инструменты диагностики tcpdump",
+                    explanation: {
+                        correct: "tcpdump — мощный инструмент для захвата и анализа сетевых пакетов в реальном времени.",
+                        incorrect: [
+                            "ping — проверяет доступность хоста, но не анализирует трафик.",
+                            "wget — загружает файлы по HTTP/FTP, но не анализирует трафик.",
+                            "curl — универсальный инструмент для передачи данных, но не анализатор трафика."
+                        ]
+                    }
+                },
+                {
+                    question: "Какой параметр команды ping устанавливает интервал между пакетами?",
+                    options: [
+                        "-c",
+                        "-i",
+                        "-s",
+                        "-t"
+                    ],
+                    correct: 1,
+                    topic: "Диагностика с помощью ping -i",
+                    explanation: {
+                        correct: "-i задает интервал в секундах между отправкой ICMP пакетов.",
+                        incorrect: [
+                            "-c — задает количество пакетов для отправки.",
+                            "-s — задает размер пакета в байтах.",
+                            "-t — устанавливает TTL (время жизни) пакета."
+                        ]
+                    }
+                },
+                {
+                    question: "Какая команда ip показывает подробную статистику сетевого интерфейса?",
+                    options: [
+                        "ip addr show",
+                        "ip link show",
+                        "ip -s link show",
+                        "ip route show"
+                    ],
+                    correct: 2,
+                    topic: "Анализ сетевых интерфейсов с помощью ip -s link show",
+                    explanation: {
+                        correct: "ip -s link show отображает статистику передачи данных для сетевых интерфейсов (пакеты, байты, ошибки).",
+                        incorrect: [
+                            "ip addr show — показывает IP-адреса интерфейсов без статистики.",
+                            "ip link show — показывает состояние интерфейсов без статистики.",
+                            "ip route show — показывает таблицу маршрутизации."
+                        ]
+                    }
+                },
+                {
+                    question: "Какая команда ss показывает только TCP соединения в состоянии LISTEN?",
+                    options: [
+                        "ss -tuln",
+                        "ss -tl",
+                        "ss -a",
+                        "ss -u"
+                    ],
+                    correct: 1,
+                    topic: "Проверка активных соединений ss -tl",
+                    explanation: {
+                        correct: "ss -tl показывает только TCP сокеты в состоянии LISTEN.",
+                        incorrect: [
+                            "ss -tuln — показывает TCP и UDP сокеты в состоянии LISTEN с числовыми адресами.",
+                            "ss -a — показывает все сокеты (listening и established).",
+                            "ss -u — показывает только UDP сокеты."
+                        ]
+                    }
+                }
+                  
                 ]
-            }
+            },
+            "3-2": {
+              title: "Конфигурирование правил файрвола с использованием firewalld и Управление файлом sudoers для настройки прав доступа пользователей", // Назва ние модуля
+                questions: [
+                  {
+                    question: "Какая команда запускает службу firewalld?",
+                    options: [
+                        "firewall-cmd --start",
+                        "systemctl start firewalld",
+                        "service firewalld start",
+                        "firewalld --enable"
+                    ],
+                    correct: 1,
+                    topic: "Конфигурирование правил файрвола с использованием firewalld systemctl start firewalld",
+                    explanation: {
+                        correct: "systemctl start firewalld — стандартная команда systemd для запуска службы firewalld.",
+                        incorrect: [
+                            "firewall-cmd --start — несуществующая опция firewall-cmd.",
+                            "service firewalld start — устаревший способ управления службами.",
+                            "firewalld --enable — несуществующая команда."
+                        ]
+                    }
+                },
+                {
+                    question: "Что такое зона (zone) в firewalld?",
+                    options: [
+                        "Физический сетевой интерфейс",
+                        "Набор правил для определенного типа сетевого окружения",
+                        "IP-адрес сервера",
+                        "Порт для подключения"
+                    ],
+                    correct: 1,
+                    topic: "Основные понятия, зона",
+                    explanation: {
+                        correct: "Зона в firewalld — это предопределенный набор правил для определенного типа сетевого окружения (дом, работа, общественная сеть и т.д.).",
+                        incorrect: [
+                            "Физический сетевой интерфейс — это устройство, которое назначается зоне.",
+                            "IP-адрес сервера — не связан напрямую с понятием зоны.",
+                            "Порт для подключения — порты открываются в рамках зон, но сами по себе не являются зонами."
+                        ]
+                    }
+                },
+                {
+                    question: "Какая команда проверяет, запущен ли firewalld?",
+                    options: [
+                        "firewall-cmd --state",
+                        "systemctl status firewalld",
+                        "firewall-cmd --check",
+                        "firewalld --status"
+                    ],
+                    correct: 0,
+                    topic: "Проверка текущего состояния firewall-cmd --state",
+                    explanation: {
+                        correct: "firewall-cmd --state возвращает 'running' или 'not running' в зависимости от состояния firewalld.",
+                        incorrect: [
+                            "systemctl status firewalld — показывает подробный статус службы, но не так лаконично.",
+                            "firewall-cmd --check — несуществующая опция.",
+                            "firewalld --status — несуществующая команда."
+                        ]
+                    }
+                },
+                {
+                    question: "Какая команда показывает активную зону для конкретного интерфейса?",
+                    options: [
+                        "firewall-cmd --get-active-zones",
+                        "firewall-cmd --list-all-zones",
+                        "firewall-cmd --get-default-zone",
+                        "firewall-cmd --zone=public --list-all"
+                    ],
+                    correct: 0,
+                    topic: "Просмотр активной зоны для интерфейса firewall-cmd --get-active-zones",
+                    explanation: {
+                        correct: "firewall-cmd --get-active-zones показывает все активные зоны и связанные с ними интерфейсы.",
+                        incorrect: [
+                            "firewall-cmd --list-all-zones — показывает все доступные зоны, но не активные.",
+                            "firewall-cmd --get-default-zone — показывает только зону по умолчанию.",
+                            "firewall-cmd --zone=public --list-all — показывает правила конкретной зоны."
+                        ]
+                    }
+                },
+                {
+                    question: "Какая команда показывает все правила в зоне public?",
+                    options: [
+                        "firewall-cmd --zone=public --list-services",
+                        "firewall-cmd --zone=public --list-all",
+                        "firewall-cmd --zone=public --list-ports",
+                        "firewall-cmd --list-all"
+                    ],
+                    correct: 1,
+                    topic: "Просмотр правил в зоне firewall-cmd --zone=public --list-all",
+                    explanation: {
+                        correct: "firewall-cmd --zone=public --list-all показывает все правила в зоне public (службы, порты, интерфейсы и т.д.).",
+                        incorrect: [
+                            "firewall-cmd --zone=public --list-services — показывает только разрешенные службы.",
+                            "firewall-cmd --zone=public --list-ports — показывает только открытые порты.",
+                            "firewall-cmd --list-all — показывает правила активной зоны, но не обязательно public."
+                        ]
+                    }
+                },
+                {
+                    question: "Какая команда временно добавляет службу HTTP в зону public?",
+                    options: [
+                        "firewall-cmd --zone=public --add-service=http",
+                        "firewall-cmd --zone=public --add-service=http --permanent",
+                        "firewall-cmd --add-service=http --zone=public --runtime",
+                        "firewall-cmd --permanent --zone=public --add-service=http"
+                    ],
+                    correct: 0,
+                    topic: "Добавление службы в зону (временное правило) firewall-cmd --zone=public --add-service=http",
+                    explanation: {
+                        correct: "firewall-cmd --zone=public --add-service=http добавляет службу HTTP временно (до перезагрузки firewalld).",
+                        incorrect: [
+                            "firewall-cmd --zone=public --add-service=http --permanent — добавляет службу навсегда.",
+                            "firewall-cmd --add-service=http --zone=public --runtime — неправильный синтаксис.",
+                            "firewall-cmd --permanent --zone=public --add-service=http — добавляет службу навсегда."
+                        ]
+                    }
+                },
+                {
+                    question: "Какие две команды нужно выполнить для постоянного добавления службы SSH?",
+                    options: [
+                        "firewall-cmd --add-service=ssh и firewall-cmd --reload",
+                        "firewall-cmd --permanent --add-service=ssh и firewall-cmd --reload",
+                        "firewall-cmd --add-service=ssh --permanent",
+                        "firewall-cmd --zone=public --add-service=ssh --save"
+                    ],
+                    correct: 1,
+                    topic: "Добавление службы в зону навсегда firewall-cmd --permanent --add-service=ssh и firewall-cmd --reload",
+                    explanation: {
+                        correct: "Сначала firewall-cmd --permanent --add-service=ssh добавляет правило в постоянную конфигурацию, затем firewall-cmd --reload применяет изменения.",
+                        incorrect: [
+                            "firewall-cmd --add-service=ssh и firewall-cmd --reload — первая команда добавляет временное правило.",
+                            "firewall-cmd --add-service=ssh --permanent — неправильный порядок параметров.",
+                            "firewall-cmd --zone=public --add-service=ssh --save — опция --save не существует."
+                        ]
+                    }
+                },
+                {
+                    question: "Какая команда открывает TCP порт 8080 в зоне public?",
+                    options: [
+                        "firewall-cmd --zone=public --add-port=8080",
+                        "firewall-cmd --zone=public --add-port=8080/tcp",
+                        "firewall-cmd --zone=public --open-port=8080/tcp",
+                        "firewall-cmd --add-port=tcp:8080 --zone=public"
+                    ],
+                    correct: 1,
+                    topic: "Открытие порта (например, TCP 8080) firewall-cmd --zone=public --add-port=8080/tcp",
+                    explanation: {
+                        correct: "firewall-cmd --zone=public --add-port=8080/tcp правильно указывает порт и протокол для открытия.",
+                        incorrect: [
+                            "firewall-cmd --zone=public --add-port=8080 — не указан протокол (TCP/UDP).",
+                            "firewall-cmd --zone=public --open-port=8080/tcp — опция --open-port не существует.",
+                            "firewall-cmd --add-port=tcp:8080 --zone=public — неправильный формат указания протокола."
+                        ]
+                    }
+                },
+                {
+                    question: "Какая команда добавляет интерфейс enp0s3 к зоне internal?",
+                    options: [
+                        "firewall-cmd --zone=internal --add-interface=enp0s3",
+                        "firewall-cmd --add-interface=enp0s3 --to-zone=internal",
+                        "firewall-cmd --zone=internal --set-interface=enp0s3",
+                        "firewall-cmd --interface=enp0s3 --zone=internal"
+                    ],
+                    correct: 0,
+                    topic: "Добавление интерфейса к зоне firewall-cmd --zone=internal --add-interface=enp0s3",
+                    explanation: {
+                        correct: "firewall-cmd --zone=internal --add-interface=enp0s3 добавляет сетевой интерфейс к указанной зоне.",
+                        incorrect: [
+                            "firewall-cmd --add-interface=enp0s3 --to-zone=internal — опция --to-zone не существует.",
+                            "firewall-cmd --zone=internal --set-interface=enp0s3 — опция --set-interface не существует.",
+                            "firewall-cmd --interface=enp0s3 --zone=internal — неправильный порядок параметров."
+                        ]
+                    }
+                },
+                {
+                    question: "Какая команда удаляет службу HTTP из зоны public?",
+                    options: [
+                        "firewall-cmd --zone=public --delete-service=http",
+                        "firewall-cmd --zone=public --remove-service=http",
+                        "firewall-cmd --zone=public --del-service=http",
+                        "firewall-cmd --remove-service=http --from-zone=public"
+                    ],
+                    correct: 1,
+                    topic: "Удаление правил firewall-cmd --zone=public --remove-service=http",
+                    explanation: {
+                        correct: "firewall-cmd --zone=public --remove-service=http удаляет службу HTTP из указанной зоны.",
+                        incorrect: [
+                            "firewall-cmd --zone=public --delete-service=http — опция --delete-service не существует.",
+                            "firewall-cmd --zone=public --del-service=http — опция --del-service не существует.",
+                            "firewall-cmd --remove-service=http --from-zone=public — опция --from-zone не существует."
+                        ]
+                    }
+                },
+                {
+                    question: "Какая команда показывает все доступные службы в firewalld?",
+                    options: [
+                        "firewall-cmd --list-services",
+                        "firewall-cmd --get-services",
+                        "firewall-cmd --show-services",
+                        "firewall-cmd --list-all-services"
+                    ],
+                    correct: 1,
+                    topic: "Просмотр всех доступных служб firewall-cmd --get-services",
+                    explanation: {
+                        correct: "firewall-cmd --get-services отображает список всех предопределенных служб, доступных в firewalld.",
+                        incorrect: [
+                            "firewall-cmd --list-services — показывает службы только в активной зоне.",
+                            "firewall-cmd --show-services — опция --show-services не существует.",
+                            "firewall-cmd --list-all-services — опция --list-all-services не существует."
+                        ]
+                    }
+                },
+                {
+                  question: "Какой файл содержит основные настройки прав доступа пользователей для команды sudo?",
+                  options: [
+                      "/etc/passwd",
+                      "/etc/sudoers",
+                      "/etc/group",
+                      "/etc/shadow"
+                  ],
+                  correct: 1,
+                  topic: "Управление файлом sudoers для настройки прав доступа пользователей /etc/sudoers",
+                  explanation: {
+                      correct: "/etc/sudoers — основной конфигурационный файл для настройки прав доступа через sudo.",
+                      incorrect: [
+                          "/etc/passwd — содержит информацию о пользователях системы, но не права sudo.",
+                          "/etc/group — содержит информацию о группах, но не конфигурацию sudo.",
+                          "/etc/shadow — содержит зашифрованные пароли пользователей."
+                      ]
+                  }
+              },
+              {
+                  question: "Какой командой следует редактировать файл sudoers для безопасного изменения?",
+                  options: [
+                      "nano /etc/sudoers",
+                      "vim /etc/sudoers",
+                      "visudo",
+                      "edit /etc/sudoers"
+                  ],
+                  correct: 2,
+                  topic: "Правила работы с файлом sudoers visudo",
+                  explanation: {
+                      correct: "visudo — специальная команда для безопасного редактирования sudoers с проверкой синтаксиса.",
+                      incorrect: [
+                          "nano /etc/sudoers — прямое редактирование без проверки синтаксиса может привести к блокировке sudo.",
+                          "vim /etc/sudoers — прямое редактирование без проверки синтаксиса небезопасно.",
+                          "edit /etc/sudoers — несуществующая стандартная команда."
+                      ]
+                  }
+              },
+              {
+                  question: "Какой формат записи в sudoers позволяет пользователю user1 выполнять все команды от имени root?",
+                  options: [
+                      "user1 ALL=(ALL) ALL",
+                      "user1 ALL=(root) ALL",
+                      "user1 root ALL",
+                      "user1:ALL=(ALL)"
+                  ],
+                  correct: 0,
+                  topic: "Формат записи в sudoers user1 ALL=(ALL) ALL",
+                  explanation: {
+                      correct: "user1 ALL=(ALL) ALL — стандартный формат: пользователь, хосты, (от чьего имени), команды.",
+                      incorrect: [
+                          "user1 ALL=(root) ALL — ограничивает выполнение только от имени root, не от всех пользователей.",
+                          "user1 root ALL — неправильный синтаксис формата sudoers.",
+                          "user1:ALL=(ALL) — неправильный синтаксис, отсутствуют необходимые поля."
+                      ]
+                  }
+              },
+              {
+                  question: "Какая запись в sudoers позволит пользователю выполнить только команду systemctl restart apache2 без пароля?",
+                  options: [
+                      "user1 ALL=(ALL) systemctl restart apache2",
+                      "user1 ALL=(ALL) NOPASSWD: /usr/bin/systemctl restart apache2",
+                      "user1 ALL=NOPASSWD: systemctl restart apache2",
+                      "user1 NOPASSWD=(ALL) systemctl restart apache2"
+                  ],
+                  correct: 1,
+                  topic: "Примеры настроек user1 ALL=(ALL) NOPASSWD: /usr/bin/systemctl restart apache2",
+                  explanation: {
+                      correct: "user1 ALL=(ALL) NOPASSWD: /usr/bin/systemctl restart apache2 — правильный формат с полным путем и NOPASSWD.",
+                      incorrect: [
+                          "user1 ALL=(ALL) systemctl restart apache2 — отсутствует NOPASSWD, будет запрашиваться пароль.",
+                          "user1 ALL=NOPASSWD: systemctl restart apache2 — неправильный синтаксис, отсутствует (ALL).",
+                          "user1 NOPASSWD=(ALL) systemctl restart apache2 — неправильное расположение NOPASSWD."
+                      ]
+                  }
+              },
+              {
+                  question: "Какая запись в sudoers включает всех пользователей группы sudo для выполнения команд с правами администратора?",
+                  options: [
+                      "sudo ALL=(ALL:ALL) ALL",
+                      "%sudo ALL=(ALL:ALL) ALL",
+                      "group sudo ALL=(ALL) ALL",
+                      "@sudo ALL=(ALL:ALL) ALL"
+                  ],
+                  correct: 1,
+                  topic: "Включение группы sudo %sudo ALL=(ALL:ALL) ALL",
+                  explanation: {
+                      correct: "%sudo ALL=(ALL:ALL) ALL — символ % указывает на группу, это стандартная запись для группы sudo.",
+                      incorrect: [
+                          "sudo ALL=(ALL:ALL) ALL — относится к пользователю sudo, а не группе.",
+                          "group sudo ALL=(ALL) ALL — неправильный синтаксис для обозначения группы.",
+                          "@sudo ALL=(ALL:ALL) ALL — символ @ не используется в sudoers для групп."
+                      ]
+                  }
+              },
+              {
+                  question: "Какая команда проверяет синтаксис файла sudoers на наличие ошибок?",
+                  options: [
+                      "sudo --check",
+                      "visudo -c",
+                      "sudoers --validate",
+                      "sudo -V"
+                  ],
+                  correct: 1,
+                  topic: "Проверка синтаксиса sudoers visudo -c",
+                  explanation: {
+                      correct: "visudo -c — проверяет синтаксис файла sudoers без его редактирования.",
+                      incorrect: [
+                          "sudo --check — несуществующая опция команды sudo.",
+                          "sudoers --validate — sudoers не является исполняемой командой.",
+                          "sudo -V — показывает версию sudo, а не проверяет синтаксис."
+                      ]
+                  }
+              }
+              ]
+            },
+            "3-3": {
+              title: "Работа с SELinux: настройка режимов (Enforcing, Permissive, Disabled) и Устранение проблем, связанных с SELinux", // Название модуля
+                questions: [
+                  {
+                    question: "Какая команда показывает текущий режим работы SELinux?",
+                    options: [
+                        "selinux-status",
+                        "getenforce",
+                        "sestatus",
+                        "selinux --mode"
+                    ],
+                    correct: 1,
+                    topic: "Работа с SELinux: настройка режимов getenforce",
+                    explanation: {
+                        correct: "getenforce — показывает текущий режим SELinux (Enforcing, Permissive или Disabled).",
+                        incorrect: [
+                            "selinux-status — несуществующая команда.",
+                            "sestatus — показывает подробную информацию о SELinux, но getenforce более простой вариант для режима.",
+                            "selinux --mode — несуществующая команда."
+                        ]
+                    }
+                },
+                {
+                    question: "Сколько основных режимов работы имеет SELinux?",
+                    options: [
+                        "2 режима",
+                        "3 режима",
+                        "4 режима",
+                        "5 режимов"
+                    ],
+                    correct: 1,
+                    topic: "Режимы SELinux",
+                    explanation: {
+                        correct: "3 режима — Enforcing (принудительный), Permissive (разрешающий) и Disabled (отключен).",
+                        incorrect: [
+                            "2 режима — недостаточно, есть третий режим Disabled.",
+                            "4 режима — слишком много, основных режимов только три.",
+                            "5 режимов — неверно, основных режимов SELinux только три."
+                        ]
+                    }
+                },
+                {
+                    question: "Какая команда показывает подробную информацию о текущем состоянии SELinux?",
+                    options: [
+                        "getenforce",
+                        "sestatus",
+                        "seinfo",
+                        "selinux-info"
+                    ],
+                    correct: 1,
+                    topic: "Просмотр текущего режима sestatus",
+                    explanation: {
+                        correct: "sestatus — показывает подробную информацию о SELinux включая режим, политику и статус.",
+                        incorrect: [
+                            "getenforce — показывает только текущий режим, но не подробную информацию.",
+                            "seinfo — показывает информацию о политиках, но не общий статус.",
+                            "selinux-info — несуществующая команда."
+                        ]
+                    }
+                },
+                {
+                    question: "Какая команда временно переводит SELinux в режим Permissive?",
+                    options: [
+                        "setenforce 0",
+                        "setenforce permissive",
+                        "selinux --permissive",
+                        "sestatus --permissive"
+                    ],
+                    correct: 0,
+                    topic: "Временное изменение режима setenforce 0",
+                    explanation: {
+                        correct: "setenforce 0 — временно переводит SELinux в режим Permissive (0=Permissive, 1=Enforcing).",
+                        incorrect: [
+                            "setenforce permissive — неправильный синтаксис, используются числа 0 и 1.",
+                            "selinux --permissive — несуществующая команда.",
+                            "sestatus --permissive — sestatus используется для просмотра, а не изменения режима."
+                        ]
+                    }
+                },
+                {
+                    question: "В каком файле нужно изменить параметр для постоянного отключения SELinux?",
+                    options: [
+                        "/etc/selinux/status",
+                        "/etc/selinux/config",
+                        "/etc/sysconfig/selinux",
+                        "/etc/selinux/settings"
+                    ],
+                    correct: 1,
+                    topic: "Постоянное изменение режима /etc/selinux/config",
+                    explanation: {
+                        correct: "/etc/selinux/config — основной конфигурационный файл для постоянных настроек SELinux.",
+                        incorrect: [
+                            "/etc/selinux/status — несуществующий файл.",
+                            "/etc/sysconfig/selinux — может быть символической ссылкой, но основной файл /etc/selinux/config.",
+                            "/etc/selinux/settings — несуществующий файл."
+                        ]
+                    }
+                },
+                {
+                    question: "Какая команда позволяет проверить текущий статус SELinux после перезагрузки системы?",
+                    options: [
+                        "systemctl status selinux",
+                        "sestatus",
+                        "selinux --status",
+                        "service selinux status"
+                    ],
+                    correct: 1,
+                    topic: "Проверка текущего статуса после перезагрузки sestatus",
+                    explanation: {
+                        correct: "sestatus — показывает полную информацию о состоянии SELinux после перезагрузки.",
+                        incorrect: [
+                            "systemctl status selinux — SELinux не является отдельным сервисом systemd.",
+                            "selinux --status — несуществующая команда.",
+                            "service selinux status — SELinux не является отдельным сервисом."
+                        ]
+                    }
+                },
+                {
+                    question: "Что важно помнить при отключении SELinux в продакшн-среде?",
+                    options: [
+                        "Это не влияет на безопасность",
+                        "Требуется только перезагрузка",
+                        "Это значительно снижает уровень безопасности системы",
+                        "Можно легко включить обратно без последствий"
+                    ],
+                    correct: 2,
+                    topic: "Важные заметки setenforce 0",
+                    explanation: {
+                        correct: "Отключение SELinux значительно снижает уровень безопасности и требует тщательного анализа рисков.",
+                        incorrect: [
+                            "Это не влияет на безопасность — неверно, SELinux критически важен для безопасности.",
+                            "Требуется только перезагрузка — неполная информация, главное — потеря безопасности.",
+                            "Можно легко включить обратно без последствий — включение может вызвать проблемы с контекстами файлов."
+                        ]
+                    }
+                },
+                {
+                    question: "Какой первый шаг в диагностике проблем SELinux?",
+                    options: [
+                        "Отключить SELinux",
+                        "Проверить текущий режим SELinux",
+                        "Перезагрузить систему",
+                        "Очистить логи"
+                    ],
+                    correct: 1,
+                    topic: "Устранение проблем, связанных с SELinux getenforce",
+                    explanation: {
+                        correct: "Проверка текущего режима SELinux помогает понять, активен ли SELinux и в каком режиме работает.",
+                        incorrect: [
+                            "Отключить SELinux — не решает проблему, а создает проблемы безопасности.",
+                            "Перезагрузить систему — преждевременное действие без диагностики.",
+                            "Очистить логи — убирает важную диагностическую информацию."
+                        ]
+                    }
+                },
+                {
+                    question: "Какую последовательность действий следует использовать для диагностики проблем SELinux?",
+                    options: [
+                        "Отключить -> перезагрузить -> включить",
+                        "Проверить режим -> проанализировать логи -> создать правила",
+                        "Очистить логи -> перезапустить сервис -> проверить",
+                        "Изменить контексты -> перезагрузить -> тестировать"
+                    ],
+                    correct: 1,
+                    topic: "Основные шаги для диагностики и устранения",
+                    explanation: {
+                        correct: "Правильная последовательность: проверить режим -> проанализировать логи -> создать правила для решения проблем.",
+                        incorrect: [
+                            "Отключить -> перезагрузить -> включить — не решает основную проблему и снижает безопасность.",
+                            "Очистить логи -> перезапустить сервис -> проверить — теряется важная диагностическая информация.",
+                            "Изменить контексты -> перезагрузить -> тестировать — преждевременные действия без анализа."
+                        ]
+                    }
+                },
+                {
+                    question: "Какая команда используется для проверки текущего режима SELinux при диагностике?",
+                    options: [
+                        "selinux-mode",
+                        "getenforce",
+                        "semode",
+                        "checkselinux"
+                    ],
+                    correct: 1,
+                    topic: "Проверка текущего режима SELinux getenforce",
+                    explanation: {
+                        correct: "getenforce — стандартная команда для быстрой проверки текущего режима SELinux.",
+                        incorrect: [
+                            "selinux-mode — несуществующая команда.",
+                            "semode — несуществующая команда.",
+                            "checkselinux — несуществующая команда."
+                        ]
+                    }
+                },
+                {
+                    question: "В каком файле находятся основные логи SELinux для анализа нарушений политики?",
+                    options: [
+                        "/var/log/selinux.log",
+                        "/var/log/audit/audit.log",
+                        "/var/log/messages",
+                        "/var/log/secure"
+                    ],
+                    correct: 1,
+                    topic: "Анализ логов SELinux /var/log/audit/audit.log",
+                    explanation: {
+                        correct: "/var/log/audit/audit.log — основной файл логов audit, где записываются события SELinux.",
+                        incorrect: [
+                            "/var/log/selinux.log — такого файла не существует по умолчанию.",
+                            "/var/log/messages — общий системный лог, но не основной для SELinux.",
+                            "/var/log/secure — содержит информацию о безопасности, но не основной для SELinux."
+                        ]
+                    }
+                },
+                {
+                    question: "Какая утилита используется для создания правил SELinux на основе логов audit?",
+                    options: [
+                        "semanage",
+                        "audit2allow",
+                        "sealert",
+                        "sepolicy"
+                    ],
+                    correct: 1,
+                    topic: "Использование утилиты audit2allow для создания правил",
+                    explanation: {
+                        correct: "audit2allow — утилита для анализа логов audit и создания правил политики SELinux.",
+                        incorrect: [
+                            "semanage — управляет политиками SELinux, но не создает правила из логов.",
+                            "sealert — анализирует логи, но не создает правила политики.",
+                            "sepolicy — утилита для работы с политиками, но не для создания правил из логов."
+                        ]
+                    }
+                },
+                {
+                    question: "Какая команда показывает контексты безопасности файлов и процессов?",
+                    options: [
+                        "ps -eZ",
+                        "ls -lZ",
+                        "secon -Z",
+                        "Все перечисленные"
+                    ],
+                    correct: 3,
+                    topic: "Проверка контекстов безопасности файлов и процессов",
+                    explanation: {
+                        correct: "Все перечисленные команды показывают контексты: ps -eZ для процессов, ls -lZ для файлов.",
+                        incorrect: [
+                            "ps -eZ — показывает только контексты процессов.",
+                            "ls -lZ — показывает только контексты файлов.",
+                            "secon -Z — неправильная команда, правильно ls -lZ или ps -eZ."
+                        ]
+                    }
+                },
+                {
+                    question: "Какая команда показывает все доступные boolean-переключатели SELinux?",
+                    options: [
+                        "getsebool -a",
+                        "setsebool --list",
+                        "semanage boolean -l",
+                        "boolean --show-all"
+                    ],
+                    correct: 0,
+                    topic: "Проверка boolean-переключателей SELinux",
+                    explanation: {
+                        correct: "getsebool -a — показывает все boolean-переключатели SELinux и их текущие состояния.",
+                        incorrect: [
+                            "setsebool --list — setsebool используется для установки, а не просмотра.",
+                            "semanage boolean -l — правильная команда, но getsebool -a более простая и распространенная.",
+                            "boolean --show-all — несуществующая команда."
+                        ]
+                    }
+                },
+                {
+                    question: "Какая рекомендация является наиболее важной при работе с SELinux?",
+                    options: [
+                        "Всегда отключать SELinux при проблемах",
+                        "Никогда не изменять политики по умолчанию",
+                        "Анализировать логи перед созданием правил",
+                        "Использовать только режим Permissive"
+                    ],
+                    correct: 2,
+                    topic: "Общие рекомендации",
+                    explanation: {
+                        correct: "Анализ логов перед созданием правил позволяет понять суть проблемы и создать правильное решение.",
+                        incorrect: [
+                            "Всегда отключать SELinux при проблемах — снижает безопасность вместо решения проблем.",
+                            "Никогда не изменять политики по умолчанию — иногда изменения необходимы для работы приложений.",
+                            "Использовать только режим Permissive — не обеспечивает защиту, только логирование."
+                        ]
+                    }
+                },
+                
+                
+                             
+              ]
+            },
+            "3-4": {
+              title: "Управление контекстами файлов с помощью semanage и chcon.", // Назва ние модуля
+                questions: [
+                  {
+                    question: "Какой инструмент позволяет просмотреть текущий SELinux-контекст файла?",
+                    options: [
+                        "ls -Z <файл>",
+                        "stat -c %C <файл>",
+                        "id -Z",
+                        "getsebool -a"
+                    ],
+                    correct: 0,
+                    topic: "Просмотр текущего контекста файла ls -Z",
+                    explanation: {
+                        correct: "ls -Z выводит подробную информацию о файле, включая SELinux-контекст.",
+                        incorrect: [
+                            "stat -c %C не существует; для stat нет спецификатора %C для контекста.",
+                            "id -Z показывает контекст пользователя, а не файла.",
+                            "getsebool -a показывает булевы параметры SELinux, но не контексты файлов."
+                        ]
+                    }
+                },
+                {
+                  question: "Какая команда используется для управления постоянными контекстами файлов с помощью semanage?",
+                  options: [
+                      "semanage fcontext -a -t <тип> '<путь>'",
+                      "chcon -t <тип> <файл>",
+                      "restorecon -Rv <директория>",
+                      "getenforce"
+                  ],
+                  correct: 0,
+                  topic: "Управление контекстами файлов с помощью semanage fcontext -a -t",
+                  explanation: {
+                      correct: "semanage fcontext -a -t добавляет постоянное правило соответствия контекста для указанного пути.",
+                      incorrect: [
+                          "chcon -t изменяет контекст только временно, до перезагрузки или вызова restorecon.",
+                          "restorecon восстанавливает контекст по умолчанию, но не создаёт новые правила.",
+                          "getenforce показывает текущий режим SELinux, но не управляет контекстами."
+                      ]
+                  }
+              },
+                
+                {
+                    question: "Какой вариант команды chcon используется для временного изменения типа контекста файла?",
+                    options: [
+                        "chcon -u <пользователь> <файл>",
+                        "chcon -t <тип> <файл>",
+                        "semanage fcontext -a -t <тип> <файл>",
+                        "restorecon -v <файл>"
+                    ],
+                    correct: 1,
+                    topic: "Временное изменение контекста с chcon -t",
+                    explanation: {
+                        correct: "chcon -t позволяет временно задать новый тип контекста файла до сброса или перезагрузки.",
+                        incorrect: [
+                            "chcon -u меняет только SELinux-пользователя в контексте, а не тип.",
+                            "semanage fcontext добавляет постоянное правило, а не временно меняет контекст.",
+                            "restorecon восстанавливает контекст по умолчанию, а не устанавливает новый."
+                        ]
+                    }
+                },
+                
+                {
+                    question: "Какой командой устанавливают постоянный контекст для каталога /var/www/html?",
+                    options: [
+                        "semanage fcontext -a -t httpd_sys_content_t '/var/www/html(/.*)?'",
+                        "chcon -t httpd_sys_content_t /var/www/html",
+                        "restorecon -Rv /var/www/html",
+                        "semanage permissive -a httpd_sys_content_t"
+                    ],
+                    correct: 0,
+                    topic: "Постоянное изменение контекста с semanage fcontext -a -t",
+                    explanation: {
+                        correct: "semanage fcontext -a -t с регулярным путём (/var/www/html(/.*)?) создаёт постоянное правило для каталога и его содержимого.",
+                        incorrect: [
+                            "chcon сделает изменение временным до следующего restorecon.",
+                            "restorecon просто вернёт стандартный контекст, а не установит новый.",
+                            "semanage permissive переводит тип в терпимый режим, но не меняет контекст файлов."
+                        ]
+                    }
+                },
+
+                
+                {
+                    question: "Как отобразить все текущие постоянные правила контекстов файлов?",
+                    options: [
+                        "semanage fcontext -l",
+                        "chcon --list",
+                        "semanage list fcontext",
+                        "restorecon -l"
+                    ],
+                    correct: 0,
+                    topic: "Управление контекстами файлов с помощью semanage fcontext -l",
+                    explanation: {
+                        correct: "semanage fcontext -l выводит список всех правил постоянного соответствия контекстов файлов.",
+                        incorrect: [
+                            "chcon не имеет опции --list для правил.",
+                            "semanage list fcontext — неверный синтаксис.",
+                            "restorecon не отображает правила, а применяет их."
+                        ]
+                    }
+                },
+
+                
+                {
+                    question: "Как удалить постоянное правило контекста для файла /opt/app/config.yml?",
+                    options: [
+                        "semanage fcontext -d '/opt/app/config.yml'",
+                        "chcon -d '/opt/app/config.yml'",
+                        "restorecon -d '/opt/app/config.yml'",
+                        "semanage fcontext --remove-all '/opt/app/config.yml'"
+                    ],
+                    correct: 0,
+                    topic: "Управление контекстами файлов с помощью semanage fcontext -d",
+                    explanation: {
+                        correct: "semanage fcontext -d удаляет правило соответствия контекста для указанного пути.",
+                        incorrect: [
+                            "chcon не удаляет постоянные правила, только меняет временный контекст.",
+                            "restorecon не удаляет правило, а восстановит контекст по нему.",
+                            "--remove-all — несуществующий ключ для semanage fcontext."
+                        ]
+                    }
+                },
+                
+                {
+                    question: "Как рекурсивно применить временное изменение контекста ко всем файлам в каталоге?",
+                    options: [
+                        "chcon -R -t <тип> <каталог>",
+                        "semanage fcontext -a -t <тип> <каталог> -R",
+                        "restorecon -Rv <каталог>",
+                        "chcon --recursive --restore <каталог>"
+                    ],
+                    correct: 0,
+                    topic: "Управление контекстами файлов с помощью chcon -R",
+                    explanation: {
+                        correct: "chcon -R позволяет рекурсивно установить новый контекст для всех файлов и поддиректорий.",
+                        incorrect: [
+                            "semanage fcontext не имеет опции -R; оно добавляет правило, но не применяет контекст.",
+                            "restorecon восстанавливает, а не меняет тип контекста.",
+                            "--recursive --restore — неверный вариант для chcon."
+                        ]
+                    }
+                },
+                
+                {
+                    question: "Как изменить уже существующее постоянное правило контекста без его удаления?",
+                    options: [
+                        "semanage fcontext -m -t <новый_тип> '<путь>'",
+                        "semanage fcontext -a -t <новый_тип> '<путь>'",
+                        "chcon -t <новый_тип> <путь>",
+                        "restorecon -Rv <путь>"
+                    ],
+                    correct: 0,
+                    topic: "Управление контекстами файлов с помощью semanage fcontext -m",
+                    explanation: {
+                        correct: "semanage fcontext -m модифицирует существующее правило, меняя тип контекста для заданного пути.",
+                        incorrect: [
+                            "-a добавляет новое правило, а не изменяет старое.",
+                            "chcon меняет только текущий контекст, но не правило.",
+                            "restorecon восстанавливает контекст из правил, но не меняет само правило."
+                        ]
+                    }
+                }
+              ]
+            },
         }
     }
 };
